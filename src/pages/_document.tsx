@@ -9,6 +9,8 @@ import Document, {
 } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
+//  for ssr : enable ssr in babel config
+
 export default class MyDocument extends Document {
     static async getInitialProps(
         ctx: DocumentContext

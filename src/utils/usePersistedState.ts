@@ -9,7 +9,6 @@ function usePersistedState(key: string, initialState: any) {
     const [state, setState] = useState(() => {
         // const storageTheme = localStorage.getItem(key);
         const storageTheme = cookie.get(key)
-        console.log("storage theme:", storageTheme)
 
         if (storageTheme == "light") {
             console.log("cookies:", storageTheme)

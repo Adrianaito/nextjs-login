@@ -5,7 +5,7 @@ const Home: React.FC = () => {
     return (
         <Container>
             <Head>
-                <title>Create Next App</title>
+                <title>Chouri App</title>
             </Head>
             <main>
                 <h1>
