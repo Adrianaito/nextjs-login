@@ -13,11 +13,40 @@ declare module 'styled-components' {
         title: string,
 
         colors: {
-            primary: string,
-            secondary: string,
-
-            background: string,
-            text: string
+            default: {
+                text: string,
+                background: string
+            },
+            primary: {
+                text: string,
+                background: string
+            },
+            secondary: {
+                text: string,
+                background: string
+            },
+            disabled: {
+                text: string,
+                background: string,
+            },
+            danger: {
+                text: string,
+                background: string
+            },
+            success: {
+                text: string,
+                background: string
+            },
+            warning: {
+                text: string,
+                background: string
+            },
+            info: {
+                text: string,
+                background: string
+            },
+            border: string,
+            active: string
         }
     }
 }
