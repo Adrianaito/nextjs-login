@@ -2,9 +2,9 @@ import { ThemeProvider } from 'styled-components'
 import React, { useEffect, useState } from 'react'
 import usePersistedState from '../utils/usePersistedState'
 import useDarkMode from 'use-dark-mode'
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import GlobalStyle from '../styles/global'
-import Header from '../components/Header'
+import { Navbar, NavigationBar } from '../components'
 
 import { lightTheme } from '../styles/Themes/light'
 import { darkTheme } from '../styles/Themes/dark'
@@ -36,7 +36,8 @@ const MyApp = ({ Component, pageProps }) => {
 
             {isMounted &&
                 <>
-                    <Header toggleTheme={toggleTheme} />
+                    <NavigationBar toggleTheme={toggleTheme} brand="Hello Chouri" />
+                    {/* <Navbar toggleTheme={toggleTheme} /> */}
                     <Component {...pageProps} />
                 </>
             }

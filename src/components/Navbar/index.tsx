@@ -10,7 +10,7 @@ interface Props {
 }
 
 
-const Header: React.FC<Props> = ({ toggleTheme }) => {
+const Navbar: React.FC<Props> = ({ toggleTheme }) => {
 
     const { colors, title } = useContext(ThemeContext)
 
@@ -33,4 +33,4 @@ const Header: React.FC<Props> = ({ toggleTheme }) => {
     )
 }
 
-export default Header
+export default Navbar
