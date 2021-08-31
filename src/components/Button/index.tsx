@@ -1,5 +1,4 @@
 
-import { Children } from 'react'
 import { ButtonStyled } from './styles'
 
 const Button = ({ children, ...props }) => {
