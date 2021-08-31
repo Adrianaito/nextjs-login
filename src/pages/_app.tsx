@@ -3,8 +3,10 @@ import React, { useEffect, useState } from 'react'
 import usePersistedState from '../utils/usePersistedState'
 import useDarkMode from 'use-dark-mode'
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 import GlobalStyle from '../styles/global'
-import { Navbar, NavigationBar } from '../components'
+import { NavigationBar } from '../components'
+import { AuthProvider } from "../contexts/AuthContext"
 
 import { lightTheme } from '../styles/Themes/light'
 import { darkTheme } from '../styles/Themes/dark'
@@ -17,7 +19,7 @@ const MyApp = ({ Component, pageProps }) => {
 
     const [isMounted, setIsMounted] = useState(false)
 
-    // FOR USE DARK MODE LIBRARY
+    // FOR DARK MODE LIBRARY:
     // const darkMode = useDarkMode(true)
     // const theme = darkMode.value ? dark : light
 
@@ -33,15 +35,15 @@ const MyApp = ({ Component, pageProps }) => {
     }
     return (
         <ThemeProvider theme={theme}>
-
-            {isMounted &&
-                <>
-                    <NavigationBar toggleTheme={toggleTheme} brand="Hello Chouri" />
-                    {/* <Navbar toggleTheme={toggleTheme} /> */}
-                    <Component {...pageProps} />
-                </>
-            }
-            <GlobalStyle />
+            <AuthProvider>
+                {isMounted &&
+                    <>
+                        <NavigationBar toggleTheme={toggleTheme} brand="Hello Chouri" />
+                        <Component {...pageProps} />
+                    </>
+                }
+                <GlobalStyle />
+            </AuthProvider>
         </ThemeProvider>
     )
 
