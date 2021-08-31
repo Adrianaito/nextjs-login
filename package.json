@@ -15,6 +15,7 @@
     "axios": "^0.21.1",
     "bootstrap": "5.1.0",
     "js-cookie": "^3.0.0",
+    "jwt-decode": "^3.1.2",
     "next": "11.1.0",
     "next-images": "^1.8.1",
     "nookies": "^2.5.2",
