@@ -4,11 +4,13 @@ import Switch from "react-switch"
 import { ThemeContext } from "styled-components"
 import { shade } from "polished"
 import { parseCookies } from 'nookies'
+import { Router } from 'next/router'
+import { GetServerSideProps } from 'next'
+
 import { StyledNavbar, StyledSwitch } from "./styles"
 import { AuthContext } from '../../contexts/AuthContext'
-import { GetServerSideProps } from 'next'
 import { getAPIClient } from '../../services/axios'
-import { Router } from 'next/router'
+import ModalExample from "./Modal"
 
 interface Props {
     toggleTheme(): void;
@@ -35,12 +37,13 @@ const NavigationBar: React.FC<Props> = ({ toggleTheme, brand }) => {
                             <Nav >
                                 {isAuthenticated && (
                                     <Navbar.Text>
-                                        Signed in as: <a href="#">{user.email}</a>
+                                        Signed in as:  <a href="#">{user.email.match(/^.+(?=@)/)[0]}</a>
                                     </Navbar.Text>
                                 )}
                                 <Nav.Link href="#home">Home</Nav.Link>
                                 <Nav.Link href="#link">Link</Nav.Link>
                                 <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                                    <ModalExample title={"Modal"} />
                                     <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                                     <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
                                     <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
@@ -88,6 +91,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     await apiClient.get('/profile/')
 
     return {
-        props: {}
+        props: { }
     }
 }
